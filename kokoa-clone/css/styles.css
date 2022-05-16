@@ -1,55 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Loop:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Zen+Loop:ital@1&display=swap");
 @import "reset.css";
 @import "variables.css";
 @import "status-bar.css"; /* every page has status-bar so it is good to import the several file */
 
+@keyframes BallRolling {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(250px);
+  }
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: white;
 }
 
-.welcome-header{
-    margin: 90px 0px;
-    text-align: center;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    position:relative;
+.welcome-header {
+  margin: 90px 0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-.welcome-header__title{
-    margin-bottom: 40px;
-    font-size: 25px;
+.welcome-header__title {
+  mix-blend-mode: difference;
+  margin-bottom: 40px;
+  font-size: 25px;
+  color: pink;
+  z-index: 2;
 }
 
-.welcome-header__text{
-    opacity: 0.6;
+.welcome-header__ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  top: -12.5px;
+  left: 100px;
+  z-index: 1;
+  animation: BallRolling 3s alternate infinite;
+}
+
+.welcome-header__text {
+  opacity: 0.6;
 }
 
 #login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #login-form input {
-    width:400px;
-    padding: 10px 10px 5px 10px;
-    border: none;
-    font-size: 18px;
-    border-bottom: 1px solid rgb(0,0,0,0.3);
-    margin-bottom: 20px;
+  width: 400px;
+  padding: 10px 10px 5px 10px;
+  border: none;
+  font-size: 18px;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.3);
+  margin-bottom: 20px;
 }
 
-#login-form input::placeholder{
-    color:rgba(0,0,0,0.4);
+#login-form input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
 }
 
-#login-form input[type="submit"]{
-    background-color: #FDE9F6;
-    border:none;
+#login-form input[type="submit"] {
+  background-color: #fde9f6;
+  border: none;
 }
 
-#login-form input:focus{
-    background-color: var(--favorite-color);
-    transition: background-color 0.5s ease-in-out;
+#login-form input:focus {
+  background-color: var(--favorite-color);
+  transition: background-color 0.5s ease-in-out;
 }
