@@ -8,14 +8,13 @@
     transform: translate(0);
   }
   to {
-    transform: translate(250px);
+    transform: translate(230px);
   }
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: white;
 }
 
 .welcome-header {
@@ -24,15 +23,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
 }
 
 .welcome-header__title {
-  mix-blend-mode: difference;
   margin-bottom: 40px;
   font-size: 25px;
-  color: pink;
-  z-index: 2;
+  color: dodgerblue;
+  z-index: 1;
+  position: relative;
 }
 
 .welcome-header__ball {
@@ -42,8 +40,7 @@ body {
   background-color: black;
   position: absolute;
   top: -12.5px;
-  left: 100px;
-  z-index: 1;
+  z-index: -1;
   animation: BallRolling 3s alternate infinite;
 }
 
