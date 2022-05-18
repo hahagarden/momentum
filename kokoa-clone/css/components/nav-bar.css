@@ -1,0 +1,44 @@
+.nav {
+  background-color: rgb(239, 239, 239);
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  border-top: 1px solid lightgray;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__link {
+  color: rgb(57, 55, 55);
+  position: relative;
+}
+
+.nav__msg_noti {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: tomato;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+}
+
+.nav__ellipsis_noti {
+  display: flex;
+  background-color: tomato;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  left: 30px;
+}
