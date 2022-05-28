@@ -7,6 +7,7 @@
   box-sizing: border-box;
   top: 26px;
   padding: 25px;
+  background-color: inherit; /* if no bgcolor, it is transparen so non-fixed contents are shown */
 }
 
 .screen-header__title {

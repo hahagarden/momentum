@@ -1,0 +1,11 @@
+#friends-display-link {
+  display: block; /* margin does not work when it is inline */
+  margin-top: 108px;
+  background-color: rgb(239, 239, 239);
+  text-align: center;
+  padding: 10px 0px;
+}
+
+#friends-display-link i {
+  padding: 0px 5px; /* padding works when it is inline */
+}
