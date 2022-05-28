@@ -6,7 +6,7 @@
   width: 100%;
   box-sizing: border-box;
   top: 26px;
-  padding: 25px;
+  padding: var(--horizontal-space);
   background-color: inherit; /* if no bgcolor, it is transparen so non-fixed contents are shown */
 }
 
