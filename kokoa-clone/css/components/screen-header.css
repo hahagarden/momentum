@@ -18,3 +18,13 @@
 .screen-header__icons span {
   margin-left: 20px;
 }
+
+.screen-header__icons-msg {
+  position: relative;
+}
+
+.screen-header__icons-msg-add {
+  position: absolute;
+  bottom: 12px;
+  font-weight: 500;
+}
