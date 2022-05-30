@@ -9,3 +9,13 @@
   color: white;
   font-size: 14px;
 }
+
+.badge-dot {
+  display: flex;
+  justify-content: center; /* justify-content and align-items are center, tbrl is easy */
+  align-items: center;
+  background-color: tomato;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}

@@ -15,7 +15,13 @@
   font-weight: 600;
 }
 
-.screen-header__icons span {
+.screen-header__icons {
+  display: flex;
+  align-items: center;
+}
+
+.screen-header__icons > * {
+  /* direct children of screen-header__icons */
   margin-left: 20px;
 }
 
@@ -26,5 +32,16 @@
 .screen-header__icons-msg-add {
   position: absolute;
   bottom: 12px;
+  left: 15px;
   font-weight: 500;
+}
+
+.screen-header__icons-cog {
+  position: relative;
+}
+
+.screen-header__icons-cog-noti {
+  position: absolute;
+  bottom: 18px;
+  left: 21px;
 }
