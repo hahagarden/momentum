@@ -1,3 +1,65 @@
 .hidden {
   display: none;
 }
+
+.bgImage {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#login-form {
+  margin-bottom: 17px;
+}
+
+#login-form input[type="text"] {
+  width: 200px;
+}
+
+#greeting {
+  font-weight: 600;
+  margin-bottom: 19px;
+}
+
+#login-username {
+  font-weight: 500;
+  color: antiquewhite;
+  text-shadow: 1px 1px 1px green;
+}
+
+#time {
+  font-weight: 600;
+}
+#time h2 {
+  margin-top: 0;
+}
+
+#toDo-form input {
+  width: 200px;
+}
+
+#quote {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+#toDo-list {
+  list-style-type: "\1F44D";
+  font-weight: 600;
+}
+
+.toDos-style {
+  padding: 0 5px;
+}
+
+.button-style {
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  text-shadow: 1px 1px 1px black;
+  background-color: rgba(1, 1, 1, 0);
+}

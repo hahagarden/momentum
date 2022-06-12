@@ -21,8 +21,10 @@ function paintToDo(typedInput) {
   li.id = typedInput.id;
   const span = document.createElement("span"); //not only list but also span to add button and delete function
   span.innerText = typedInput.text;
+  span.classList.add("toDos-style");
   const button = document.createElement("button");
-  button.innerText = "X";
+  button.innerText = "×";
+  button.classList.add("button-style");
   button.addEventListener("click", deleteToDo);
   li.appendChild(span);
   li.appendChild(button);

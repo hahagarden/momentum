@@ -1,11 +1,18 @@
-const clock = document.querySelector("h2#clock");
+const today = document.querySelector("#time span");
+const clock = document.querySelector("#time h2");
 
 function getClock() {
   //just show hours:minutes:seconds, and setInterval() calls getClock() every second
-  const date = new Date();
-  const hours = String(date.getHours()).padStart(2, "0"); //padStart: padding to start
-  const minutes = String(date.getMinutes()).padStart(2, "0");
-  const seconds = String(date.getSeconds()).padStart(2, "0");
+  const time = new Date();
+  const years = time.getFullYear();
+  const months = time.getMonth();
+  const dates = time.getDate();
+  const days = time.getDay();
+  const days_eng = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const hours = String(time.getHours()).padStart(2, "0"); //padStart: padding to start
+  const minutes = String(time.getMinutes()).padStart(2, "0");
+  const seconds = String(time.getSeconds()).padStart(2, "0");
+  today.innerText = `${years}/${months}/${dates}/${days_eng[days]}`;
   clock.innerText = `${hours}:${minutes}:${seconds}`;
 }
 
