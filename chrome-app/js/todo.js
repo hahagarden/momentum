@@ -12,12 +12,15 @@ function saveToDos() {
 function deleteToDo(event) {
   const li = event.target.parentElement; // we can access to the parent element of the button using event.target.parentElement
   li.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id)); //new array excluding having filter(false) element
+  saveToDos();
 }
 
 function paintToDo(typedInput) {
   const li = document.createElement("li");
+  li.id = typedInput.id;
   const span = document.createElement("span"); //not only list but also span to add button and delete function
-  span.innerText = typedInput;
+  span.innerText = typedInput.text;
   const button = document.createElement("button");
   button.innerText = "X";
   button.addEventListener("click", deleteToDo);
@@ -29,14 +32,19 @@ function paintToDo(typedInput) {
 function handleToDoSubmit(event) {
   event.preventDefault();
   const typedInput = toDoInput.value;
-  toDos.push(typedInput);
+  const typedInputObj = { text: typedInput, id: Date.now() };
+  toDos.push(typedInputObj);
   toDoInput.value = "";
-  paintToDo(typedInput);
+  paintToDo(typedInputObj);
   saveToDos();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
-const savedToDos = JSON.parse(localStorage.getItem(TODOS_KEY));
-toDos = savedToDos;
-savedToDos.forEach(paintToDo); // a function is excuted for each item in array
+const savedToDos = localStorage.getItem(TODOS_KEY);
+
+if (savedToDos !== null) {
+  const parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo); // a function is excuted for each item in array
+}
