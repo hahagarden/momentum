@@ -51,7 +51,17 @@
   font-weight: 600;
 }
 
-.toDos-style {
+#done-list {
+  list-style-type: "💜";
+}
+
+#done {
+  position: fixed;
+  top: 200px;
+  right: 300px;
+}
+
+.list-style {
   padding: 0 5px;
 }
 
@@ -62,4 +72,9 @@
   color: gray;
   text-shadow: 1px 1px 1px black;
   background-color: rgba(1, 1, 1, 0);
+}
+
+.onMouseEnter {
+  color: white;
+  text-decoration: underline;
 }
