@@ -26,31 +26,39 @@ function saveDones() {
   localStorage.setItem(DONES_KEY, JSON.stringify(dones));
 }
 
-function deleteToDo(event) {
+function deleteList(event) {
   const li = event.target.parentElement; // we can access to the parent element of the button using event.target.parentElement
   li.remove();
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id)); //new array excluding having filter(false) element
-  saveToDos();
+  switch (event.path[2].id) {
+    case "toDo-list":
+      toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id)); //new array excluding having filter(false) element
+      saveToDos();
+      break;
+    case "done-list":
+      dones = dones.filter((done) => done.id !== parseInt(li.id)); //new array excluding having filter(false) element
+      saveDones();
+  }
 }
 
 function moveToDo(event) {
-  deleteToDo(event);
+  deleteList(event);
   const clickedToDo = event.target.parentElement;
   const span = clickedToDo.querySelector("span");
   const clickedToDoObj = {
     text: span.innerText,
     id: clickedToDo.id,
+    list: "dones",
   };
   dones.push(clickedToDoObj);
-  paintDone(clickedToDoObj);
+  paintList(clickedToDoObj);
   saveDones();
 }
 
-function paintToDo(typedInput) {
+function paintList(whatList) {
   const li = document.createElement("li");
-  li.id = typedInput.id;
+  li.id = whatList.id;
   const span = document.createElement("span"); //not only list but also span to add button and delete function
-  span.innerText = typedInput.text;
+  span.innerText = whatList.text;
   span.classList.add("list-style");
   span.addEventListener("mouseenter", onMouseEnter);
   span.addEventListener("mouseleave", onMouseLeave);
@@ -58,31 +66,30 @@ function paintToDo(typedInput) {
   const button = document.createElement("button");
   button.innerText = "×";
   button.classList.add("button-style");
-  button.addEventListener("click", deleteToDo);
+  button.addEventListener("click", deleteList);
   li.appendChild(span);
   li.appendChild(button);
-  toDoList.appendChild(li);
-}
-
-function paintDone(clickedToDo) {
-  const li = document.createElement("li");
-  li.id = clickedToDo.id;
-  const span = document.createElement("span");
-  span.innerText = clickedToDo.text;
-  span.classList.add("list-style");
-  span.addEventListener("mouseenter", onMouseEnter);
-  span.addEventListener("mouseleave", onMouseLeave);
-  li.appendChild(span);
-  doneList.appendChild(li);
+  switch (whatList.list) {
+    case "todos":
+      toDoList.appendChild(li);
+      break;
+    case "dones":
+      doneList.appendChild(li);
+      break;
+  }
 }
 
 function handleToDoSubmit(event) {
   event.preventDefault();
   const typedInput = toDoInput.value;
-  const typedInputObj = { text: typedInput, id: Date.now() };
+  const typedInputObj = {
+    text: typedInput,
+    id: Date.now(),
+    list: "todos",
+  };
   toDos.push(typedInputObj);
   toDoInput.value = "";
-  paintToDo(typedInputObj);
+  paintList(typedInputObj);
   saveToDos();
 }
 
@@ -94,11 +101,11 @@ const savedDones = localStorage.getItem(DONES_KEY);
 if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   toDos = parsedToDos;
-  parsedToDos.forEach(paintToDo); // a function is excuted for each item in array
+  parsedToDos.forEach(paintList); // a function is excuted for each item in array
 }
 
 if (savedDones !== null) {
   const parsedDones = JSON.parse(savedDones);
   dones = parsedDones;
-  parsedDones.forEach(paintDone);
+  parsedDones.forEach(paintList);
 }
