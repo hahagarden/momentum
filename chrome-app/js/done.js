@@ -18,12 +18,17 @@ function onMouseLeave(event) {
   target.classList.remove("onMouseEnter");
 }
 
-function saveToDos() {
-  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
-}
-
-function saveDones() {
-  localStorage.setItem(DONES_KEY, JSON.stringify(dones));
+function saveArray(whatArray) {
+  let KEY;
+  switch (whatArray) {
+    case toDos:
+      KEY = TODOS_KEY;
+      break;
+    case dones:
+      KEY = DONES_KEY;
+      break;
+  }
+  localStorage.setItem(KEY, JSON.stringify(whatArray));
 }
 
 function deleteList(event) {
@@ -32,26 +37,38 @@ function deleteList(event) {
   switch (event.path[2].id) {
     case "toDo-list":
       toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id)); //new array excluding having filter(false) element
-      saveToDos();
+      saveArray(toDos);
       break;
     case "done-list":
       dones = dones.filter((done) => done.id !== parseInt(li.id)); //new array excluding having filter(false) element
-      saveDones();
+      saveArray(dones);
+      break;
   }
 }
 
-function moveToDo(event) {
+function moveList(event) {
   deleteList(event);
-  const clickedToDo = event.target.parentElement;
-  const span = clickedToDo.querySelector("span");
-  const clickedToDoObj = {
+  const clickedList = event.target.parentElement;
+  const span = clickedList.querySelector("span");
+  let clickedListObj = {
     text: span.innerText,
-    id: clickedToDo.id,
-    list: "dones",
+    id: clickedList.id,
+    list: "",
   };
-  dones.push(clickedToDoObj);
-  paintList(clickedToDoObj);
-  saveDones();
+  switch (event.path[2].id) {
+    case "toDo-list":
+      clickedListObj.list = "dones";
+      dones.push(clickedListObj);
+      paintList(clickedListObj);
+      saveArray(dones);
+      break;
+    case "done-list":
+      clickedListObj.list = "todos";
+      toDos.push(clickedListObj);
+      paintList(clickedListObj);
+      saveArray(toDos);
+      break;
+  }
 }
 
 function paintList(whatList) {
@@ -62,7 +79,7 @@ function paintList(whatList) {
   span.classList.add("list-style");
   span.addEventListener("mouseenter", onMouseEnter);
   span.addEventListener("mouseleave", onMouseLeave);
-  span.addEventListener("click", moveToDo);
+  span.addEventListener("click", moveList);
   const button = document.createElement("button");
   button.innerText = "×";
   button.classList.add("button-style");
@@ -90,7 +107,7 @@ function handleToDoSubmit(event) {
   toDos.push(typedInputObj);
   toDoInput.value = "";
   paintList(typedInputObj);
-  saveToDos();
+  saveArray(toDos);
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
