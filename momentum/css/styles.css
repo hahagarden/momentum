@@ -11,6 +11,13 @@
   z-index: -1;
 }
 
+#main {
+  width: 450px;
+  color: white;
+  background-color: rgba(1, 1, 1, 0.4);
+  padding: 10px 10px;
+}
+
 #login-form {
   margin-bottom: 17px;
 }
@@ -32,6 +39,8 @@
 
 #time {
   font-weight: 600;
+  width: 150px;
+  display: inline-block;
 }
 #time h2 {
   margin-top: 0;
@@ -42,27 +51,20 @@
 }
 
 #quote {
+  position: absolute;
+  bottom: 10px;
+  display: inline-block;
   font-weight: 600;
-  margin-bottom: 0;
+  padding: 0px 5px;
+  background-color: rgba(1, 1, 1, 0.4);
 }
 
 #toDo-list {
-  list-style-type: "\1F44D";
+  list-style-type: "👍 ";
   font-weight: 600;
 }
 
-#done-list {
-  list-style-type: "💜";
-}
-
-#done {
-  position: fixed;
-  top: 200px;
-  right: 300px;
-}
-
 .list-style {
-  padding: 0 5px;
 }
 
 .button-style {
@@ -77,4 +79,27 @@
 .onMouseEnter {
   color: white;
   text-decoration: underline;
+}
+
+#weather {
+  position: absolute;
+  top: 52px;
+  left: 140px;
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.weather-border {
+  border: 0.7px solid white;
+  border-radius: 10px;
+}
+
+#weather span {
+  margin-left: 10px;
+}
+
+#weather div {
+  display: flex;
+  align-items: center;
 }
