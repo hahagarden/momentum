@@ -1,3 +1,20 @@
+@import "reset.css";
+@import "variable.css";
+@import "login.css";
+@import "widget.css";
+@import "list.css";
+
+#main{
+  position:fixed;
+  top:10px;
+  left: 10px;
+  font-weight: 600;
+  color: white;
+  width: 500px;
+  height: 500px;
+  background-color: var(--bgcolor);
+}
+
 .hidden {
   display: none;
 }
@@ -11,95 +28,12 @@
   z-index: -1;
 }
 
-#main {
-  width: 450px;
-  color: white;
-  background-color: rgba(1, 1, 1, 0.4);
-  padding: 10px 10px;
-}
-
-#login-form {
-  margin-bottom: 17px;
-}
-
-#login-form input[type="text"] {
-  width: 200px;
-}
-
-#greeting {
-  font-weight: 600;
-  margin-bottom: 19px;
-}
-
-#login-username {
-  font-weight: 500;
-  color: antiquewhite;
-  text-shadow: 1px 1px 1px green;
-}
-
-#time {
-  font-weight: 600;
-  width: 150px;
-  display: inline-block;
-}
-#time h2 {
-  margin-top: 0;
-}
-
-#toDo-form input {
-  width: 200px;
-}
-
 #quote {
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   display: inline-block;
-  font-weight: 600;
   padding: 0px 5px;
-  background-color: rgba(1, 1, 1, 0.4);
+  background-color: var(--bgcolor);
 }
 
-#toDo-list {
-  list-style-type: "👍 ";
-  font-weight: 600;
-}
 
-.list-style {
-}
-
-.button-style {
-  border: none;
-  font-size: 16px;
-  font-weight: 500;
-  color: gray;
-  text-shadow: 1px 1px 1px black;
-  background-color: rgba(1, 1, 1, 0);
-}
-
-.onMouseEnter {
-  color: white;
-  text-decoration: underline;
-}
-
-#weather {
-  position: absolute;
-  top: 52px;
-  left: 140px;
-  display: flex;
-  align-items: center;
-  width: max-content;
-}
-
-.weather-border {
-  border: 0.7px solid white;
-  border-radius: 10px;
-}
-
-#weather span {
-  margin-left: 10px;
-}
-
-#weather div {
-  display: flex;
-  align-items: center;
-}
