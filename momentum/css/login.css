@@ -1,21 +1,21 @@
-#login-form {
+#login-form , #greeting{
     margin-top:10px;
     margin-left:10px;
-    margin-bottom: 30px;
+    margin-bottom: 30px; 
+    width:400px;
+    display: inline-block;
   }
   
   #login-form input[type="text"] {
-    width: 200px;
+    width: 242px;
   }
-  
-  #greeting {
-    margin-top:10px;
-    margin-left:10px;
-    margin-bottom: 30px;
+
+  #login-form input[type="submit"]{
+    width: 55px;
   }
   
   #login-username {
     font-weight: 500;
     color: antiquewhite;
-    text-shadow: 1px 1px 1px green;;
+    text-shadow: 1px 1px 1px green;
   }

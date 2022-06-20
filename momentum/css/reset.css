@@ -3,7 +3,7 @@
    License: none (public domain)
 */
 
-html, body {
+html, body, form {
 	margin: 0;
 	padding: 0;
 	border: 0;

@@ -4,19 +4,23 @@
 @import "widget.css";
 @import "list.css";
 
+body{
+  font-size: 18px;
+  color:white;
+}
+
 #main{
   position:fixed;
   top:10px;
   left: 10px;
+  width: 670px;
+  height: 550px;  
   font-weight: 600;
-  color: white;
-  width: 500px;
-  height: 500px;
   background-color: var(--bgcolor);
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .bgImage {
@@ -31,8 +35,7 @@
 #quote {
   position: fixed;
   bottom: 10px;
-  display: inline-block;
-  padding: 0px 5px;
+  padding: 5px 5px;
   background-color: var(--bgcolor);
 }
 
