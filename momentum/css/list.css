@@ -7,9 +7,9 @@
 
 #toDo-list {
     width: 620px;
-    height: 355px;
+    height: 105px;
     list-style-type: "👍 ";
-    overflow: scroll;
+    overflow: hidden scroll;
   }
   
   .button-style {
@@ -21,3 +21,11 @@
     background-color: rgba(1, 1, 1, 0);
   }
 
+#toDo-list::-webkit-scrollbar{
+  width:8px;
+}
+
+#toDo-list::-webkit-scrollbar-thumb{
+  background-color: rgba(1,1,1,0.7);
+  border-radius: 4px;
+}
