@@ -38,6 +38,7 @@ function handleToDoSubmit(event) {
   toDos.push(typedInputObj);
   toDoInput.value = "";
   paintToDo(typedInputObj);
+  toDoList.scrollTop=toDoList.scrollHeight;
   saveToDos();
 }
 

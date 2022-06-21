@@ -1,31 +1,31 @@
 #toDo-form{
-    margin-left: 10px;
+  margin-left: 10px;
 }
 #toDo-form input {
-    width: 242px;
-  }
+  width: 242px;
+}
 
 #toDo-list {
-    width: 620px;
-    height: 105px;
-    list-style-type: "👍 ";
-    overflow: hidden scroll;
-  }
-  
-  .button-style {
-    border: none;
-    font-size: 16px;
-    font-weight: 500;
-    color: gray;
-    text-shadow: 1px 1px 1px black;
-    background-color: rgba(1, 1, 1, 0);
-  }
+  width: 620px;
+  height: 105px;
+  list-style-type: "👍 ";
+  overflow: auto;
+}
 
-#toDo-list::-webkit-scrollbar{
+.button-style {
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  text-shadow: 1px 1px 1px black;
+  background-color: rgba(1, 1, 1, 0);
+}
+
+#toDo-list::-webkit-scrollbar {
   width:8px;
 }
 
-#toDo-list::-webkit-scrollbar-thumb{
+#toDo-list::-webkit-scrollbar-thumb {
   background-color: rgba(1,1,1,0.7);
   border-radius: 4px;
 }
