@@ -1,8 +1,9 @@
 #login-form , #greeting{
-    margin-top:10px;
+    margin-top:16px;
     margin-left:10px;
     margin-bottom: 30px; 
     width:400px;
+    height: 20px;
     display: inline-block;
   }
   
