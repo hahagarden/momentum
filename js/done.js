@@ -52,7 +52,7 @@ function moveList(event) {
   const span = clickedList.querySelector("span");
   let clickedListObj = {
     text: span.innerText,
-    id: clickedList.id,
+    id: parseInt(clickedList.id), //event.target.parentElement.id="", string type!
     list: "",
   };
   switch (event.path[2].id) {
@@ -118,11 +118,11 @@ const savedDones = localStorage.getItem(DONES_KEY);
 if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   toDos = parsedToDos;
-  parsedToDos.forEach(paintList); // a function is excuted for each item in array
+  toDos.forEach(paintList); // a function is excuted for each item in array
 }
 
 if (savedDones !== null) {
   const parsedDones = JSON.parse(savedDones);
   dones = parsedDones;
-  parsedDones.forEach(paintList);
+  dones.forEach(paintList);
 }

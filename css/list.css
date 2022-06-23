@@ -1,4 +1,4 @@
-#toDo-form{
+#toDo-form {
   margin-left: 10px;
 }
 #toDo-form input {
@@ -21,11 +21,36 @@
   background-color: rgba(1, 1, 1, 0);
 }
 
-#toDo-list::-webkit-scrollbar {
-  width:8px;
+#toDo-list::-webkit-scrollbar,
+#done-list::-webkit-scrollbar {
+  width: 8px;
 }
 
-#toDo-list::-webkit-scrollbar-thumb {
-  background-color: rgba(1,1,1,0.7);
+#toDo-list::-webkit-scrollbar-thumb,
+#done-list::-webkit-scrollbar-thumb {
+  background-color: rgba(1, 1, 1, 0.7);
   border-radius: 4px;
+}
+
+#done-list {
+  width: 275px;
+  height: 100px;
+  list-style-type: "💜 ";
+  overflow: auto;
+  margin: 10px 0;
+}
+
+#done {
+  position: fixed;
+  top: 200px;
+  right: 0;
+  width: 320px;
+  height: 150px;
+  background-color: var(--bgcolor);
+}
+
+#done > span {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
 }
